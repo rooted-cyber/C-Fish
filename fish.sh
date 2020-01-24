@@ -28,7 +28,7 @@ ran() {
 menu() {
 	banner
 	dependencies
-	read
+	
 	cd ~/C-Fish
 	chmod 700 ngrok > /dev/null 2>&1
 	./ngrok http 3333 > /dev/null 2>&1 &
