@@ -23,8 +23,8 @@ packages () {
 	echo "#!/data/data/com.termux/files/usr/bin/sh" >> $PREFIX/bin/fish
 	echo "cd ~/C-Fish" >> $PREFIX/bin/fish
 	echo "bash fish.sh" >> $PREFIX/bin/fish
-	printf "\033[96m [√] Now you can use this command for start :- fish\n\n Press enter to start\n"
-	read
+	printf "\033[96m [√] Now you can use this command for start :- fish\n\n"
+	exit
 	}
 	check-sites () {
 		cd ~/C-Fish
@@ -177,6 +177,7 @@ packages () {
 			openssh-package
 			wget-package
 			}
+			pwd
 			packages
 		
 		
