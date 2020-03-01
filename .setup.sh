@@ -20,10 +20,11 @@ packages () {
 	ch-file
 	checking-ngrok
 	ngrok2
-	echo "#!/data/data/com.termux/files/usr/bin/sh" >> $PREFIX/bin/fish
-	echo "cd ~/C-Fish" >> $PREFIX/bin/fish
-	echo "bash fish.sh" >> $PREFIX/bin/fish
-	printf "\033[96m [√] Now you can use this command for start :- fish\n\n"
+	echo "#!/data/data/com.termux/files/usr/bin/sh" >> $PREFIX/bin/fis
+	echo "cd ~/C-Fish" >> $PREFIX/bin/fis
+	echo "bash fish.sh" >> $PREFIX/bin/fis
+	777 $PREFIX/bin/fis
+	printf "\033[96m [√] Now you can use this command for start :- fis\n\n"
 	exit
 	}
 	check-sites () {
