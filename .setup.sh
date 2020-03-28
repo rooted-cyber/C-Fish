@@ -12,18 +12,21 @@ packages () {
 	pip install lolcat
 	apt install cowsay
 	checking-packages
+	sleep 2
 	clear
 	printf "\n\n[+] Downloading sites.zip....\n"
 	download-sites
+	sleep 1
 	check-sites
+	sleep 1
 	un
 	ch-file
 	checking-ngrok
 	ngrok2
-	echo "#!/data/data/com.termux/files/usr/bin/sh" >> $PREFIX/bin/fis
-	echo "cd ~/C-Fish" >> $PREFIX/bin/fis
-	echo "bash fish.sh" >> $PREFIX/bin/fis
-	777 $PREFIX/bin/fis
+	echo "#!/data/data/com.termux/files/usr/bin/sh" >> $PREFIX/bin/C-Fish
+	echo "cd ~/C-Fish" >> $PREFIX/bin/C-Fish
+	echo "bash fish.sh" >> $PREFIX/bin/C-Fish
+	chmod 777 $PREFIX/bin/C-Fish
 	printf "\033[96m [√] Now you can use this command for start :- fis\n\n"
 	exit
 	}
@@ -69,7 +72,9 @@ packages () {
 			printf "\n[√] Ngrok Available\n"
 			else
 			clear
-			printf "\n\n\033[91m [×] Ngrok not found !!!\n\n"
+			printf "\n\033[92m Checking ngrok in home directory..."
+			ngrok3
+			#printf "\n\n\033[91m [×] Ngrok not found !!!\n\n"
 			printf "\033[92m [+] Downloading ngrok....\n"
 			wget https://github.com/rooted-cyber/upload/raw/master/ngrok.zip
 			printf "\n[√] Download complete\n"
@@ -87,6 +92,16 @@ packages () {
 				checking-ngrok
 				fi
 				}
+				ngrok3 () {
+					cd ~
+					if [ -e ngrok ];then
+					printf "\n\n Ngrok found in home directory"
+					printf "\n\n Ngrok coping......}n"
+					cp -f ngrok ~/C-Fish
+					else
+					printf "\n \033[91m [×] ngrok not found in home directory\n"
+					fi
+					}
 	wget-package () {
 		cd $PREFIX/bin
 		if [ -e wget ];then

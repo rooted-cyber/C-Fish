@@ -10,8 +10,8 @@ trap 'printf "\n";stop;exit 1' 2
 
 dependencies() {
 	cd $PREFIX/bin
-if [ -e fish ];then
-chmod 777 fish
+if [ -e C-Fish ];then
+chmod 777 C-Fish
 else
 cd ~/C-Fish
 bash .setup.sh
