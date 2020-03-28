@@ -21,13 +21,14 @@ packages () {
 	sleep 1
 	un
 	ch-file
+	ng
 	checking-ngrok
 	ngrok2
 	echo "#!/data/data/com.termux/files/usr/bin/sh" >> $PREFIX/bin/C-Fish
 	echo "cd ~/C-Fish" >> $PREFIX/bin/C-Fish
 	echo "bash fish.sh" >> $PREFIX/bin/C-Fish
 	chmod 777 $PREFIX/bin/C-Fish
-	printf "\033[96m [√] Now you can use this command for start :- fis\n\n"
+	printf "\033[96m [√] Now you can use this command for start :- C-Fish\n\n"
 	exit
 	}
 	check-sites () {
@@ -72,9 +73,8 @@ packages () {
 			printf "\n[√] Ngrok Available\n"
 			else
 			clear
-			printf "\n\033[92m Checking ngrok in home directory..."
-			ngrok3
-			#printf "\n\n\033[91m [×] Ngrok not found !!!\n\n"
+			#printf "\n\033[92m Checking ngrok in home directory..."
+			printf "\n\n\033[91m [×] Ngrok not found !!!\n\n"
 			printf "\033[92m [+] Downloading ngrok....\n"
 			wget https://github.com/rooted-cyber/upload/raw/master/ngrok.zip
 			printf "\n[√] Download complete\n"
@@ -92,11 +92,21 @@ packages () {
 				checking-ngrok
 				fi
 				}
+				ng () {
+					cd ~/C-Fish
+					if [ -e ngrok ];then
+					chmod 700 ngrok
+					else
+					printf "Checking ngrok in home...\n"
+					ngrok3
+					fi
+					}
 				ngrok3 () {
 					cd ~
 					if [ -e ngrok ];then
 					printf "\n\n Ngrok found in home directory"
-					printf "\n\n Ngrok coping......}n"
+					printf "\n\n Ngrok coping......\n"
+					cd ~
 					cp -f ngrok ~/C-Fish
 					else
 					printf "\n \033[91m [×] ngrok not found in home directory\n"
